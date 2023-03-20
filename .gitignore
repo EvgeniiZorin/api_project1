@@ -2,6 +2,18 @@
 __pycache__/
 *.py[cod]
 
-# Virtual environments
+# Virtual environment
 venv
+env
 .venv
+.env
+
+# Scrap notebook
+checks.ipynb
+checks.py
+practice.ipynb
+temp.ipynb
+temp.txt
+
+# Private files
+secrets.py
