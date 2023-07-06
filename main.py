@@ -46,10 +46,11 @@ def get_image_base64():
     data2 = base64.b64encode(data)
     return data2
 
-@app.get('/get_certain_image')
+@app.get('/get_certain_image/')
 def get_certain_image(name):
-    name = name.replace('_', '/')
+    name = name.replace(':::', '/')
     with open(name, 'rb') as f:
         data = f.read()
     data2 = base64.b64encode(data)
     return data2
+
