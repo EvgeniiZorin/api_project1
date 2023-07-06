@@ -3,6 +3,7 @@ from datetime import datetime
 import random
 import os
 import pandas as pd
+import base64
 
 app = FastAPI()
 
@@ -33,3 +34,10 @@ def get_random_quote():
     author = random_quote['Author'].item()
     quote_text = random_quote['Quote'].item()
     return { author: quote_text }
+
+@app.get('/image_b64')
+def get_image_base64():
+    with open('img1.jpg', 'rb') as f:
+        data = f.read()
+    data2 = base64.b64encode(data)
+    return data2
