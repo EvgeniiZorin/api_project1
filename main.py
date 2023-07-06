@@ -35,9 +35,21 @@ def get_random_quote():
     quote_text = random_quote['Quote'].item()
     return { author: quote_text }
 
+@app.get('/echo/')
+def echoer(item1:int = 0, item2:str = 'example'):
+    return f"item1: {item1}, {type(item1)}; item2: {item2}, {type(item2)}"
+
 @app.get('/image_b64')
 def get_image_base64():
     with open('img1.jpg', 'rb') as f:
+        data = f.read()
+    data2 = base64.b64encode(data)
+    return data2
+
+@app.get('/get_certain_image')
+def get_certain_image(name):
+    name = name.replace('_', '/')
+    with open(name, 'rb') as f:
         data = f.read()
     data2 = base64.b64encode(data)
     return data2
