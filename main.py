@@ -41,7 +41,7 @@ def echoer(item1:int = 0, item2:str = 'example'):
 
 @app.get('/image_b64')
 def get_image_base64():
-    with open('img1.jpg', 'rb') as f:
+    with open('images/img1.jpg', 'rb') as f:
         data = f.read()
     data2 = base64.b64encode(data)
     return data2
